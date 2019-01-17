@@ -59,6 +59,10 @@ namespace BackEnd
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            // Comment out the following line to avoid resetting the database each time
+            var loader = new SessionizeLoader(app.ApplicationServices);
+            loader.LoadData("NDC_Sydney_2018.json", "NDC Sydney 2018");
         }
     }
 }
